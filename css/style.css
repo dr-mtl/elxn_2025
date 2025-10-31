@@ -1,0 +1,455 @@
+/***
+DEFAULTS
+****/
+/***
+Specific styles
+
+
+Projet Montreal: #09aa64;
+Ensemble: #9852d9;
+TM:  #fa6502;
+other: #195c8d
+***/
+
+*{
+    font-family: "Roboto Condensed", "Roboto Condensed-fb", Helvetica, Arial, sans-serif;;
+}
+
+.container {
+    padding: 0 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+body{
+    font-size: 100%;
+    overflow-x: hidden;
+    word-wrap:break-word;
+    margin:0;
+    padding:0;
+    display:inline-block;
+}
+
+.displaynone{display:none;}
+
+
+html{
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+    box-sizing:border-box;
+}
+*, *:before, *:after {
+    -webkit-box-sizing:inherit;
+    -moz-box-sizing: inherit;
+    box-sizing:inherit;
+}
+
+a {
+  white-space: pre-wrap;
+  overflow-wrap:normal;
+}
+
+
+
+#graphic-contain{
+    max-width:600px;
+    height:auto;
+    margin:0;
+    padding:5px;
+    display:inline-block;
+}
+
+main{
+    display:block;
+    max-width:390px;
+    width:100%;
+    position:absolute;
+    height:auto;
+    float:left;
+    z-index:2;
+    top:0;
+}
+main:after{
+    clear:both;
+}
+aside{
+    width:100%;
+    max-width:200px;
+    height:450px;
+    display:inline-block;
+    position:relative;
+    float:right;
+}
+
+
+/*SET MAX WIDTH to 380 to have buttons in full right column*/
+h1{
+    max-width:600px;
+    font-weight:400;
+    font-size:1.2rem;
+    line-height:1.25em;
+    color: black;
+    display:inline-block;
+    margin:5px 0px 10px 5px;
+}
+
+#chart-title{
+    font-weight:700;
+    font-size: 1.7rem;
+}
+h1 a{
+    color:black;
+    font-weight:400;
+    text-decoration: underline;
+    text-decoration-style: none;
+    text-decoration-skip: ink;
+    text-decoration-color: hotpink;
+}
+
+
+
+.person-circle{
+    display:block;
+    position:relative;
+    margin:3px;
+    width:42px;
+    height:42px;
+    border-radius: 100%;
+    display:block;
+    position:relative;
+    border: 2px solid;
+    background-size: cover;
+    background-repeat: no-repeat;
+    float:left;
+}
+.person-circle:after{
+    position: absolute;
+    content:"";
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border-radius:100%;
+    opacity:0.25;
+}
+.person-circle.em{
+    border-color:#9852d9;
+    background-color:#9852d9;
+
+}
+.person-circle.em:after{
+    background-color:#9852d9;
+}
+
+.person-circle.pm{
+    border-color: #09aa64;
+    background-color: #09aa64;
+}
+.person-circle.pm:after{
+    background-color: #09aa64;
+}
+
+.person-circle.tm{
+    border-color:#fa6502;
+    background-color: #fa6502;
+}
+
+.person-circle.tm:after{
+    background-color: #fa6502;
+
+}
+
+.person-circle.other{
+    border-color:#195c8d;
+    background-color:#195c8d;
+}
+.person-circle.other:after{
+
+    background-color:#195c8d;
+}
+
+aside{
+    padding:3px 5px;
+
+}
+.team-button{
+    display:grid;
+    grid-template-columns:5px 2.5rem 5px min-content 5px;
+    align-items: center;
+    position:relative;
+    width:100%;
+    height: auto;
+    margin:0 0 10px 0;
+    padding:0;
+    background:	#F5F5F5;
+    outline:none;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    padding-top:2px;
+
+}
+.team-button:hover, .team-button.is-checked{
+    background-color: lightgrey;
+    cursor:pointer;
+}
+
+.team-button.uncalled:hover{
+    background-color: #F5F5F5;
+}
+
+.seat-number{
+    grid-column: 2 / span 1;
+    text-align:right;
+    float:left;
+    font-size:2.25rem;
+    line-height:1.25em;
+    font-weight:700;
+}
+
+.em .seat-number{
+    color: #9852d9;
+}
+.pm .seat-number{
+    color:#09aa64;
+}
+
+.tm .seat-number{
+    color: #fa6502;
+}
+
+
+.other .seat-number{
+    color: #195c8d;
+}
+.team-name{
+    grid-column: 4 / span 1;
+    text-transform:uppercase;
+    font-weight:400;
+    width:100%;
+    font-size:1rem;
+    text-align:left;
+
+}
+.team-name p{
+
+    margin:0;
+}
+
+
+aside .other p{
+    bottom:10px;
+}
+
+.inline-button{
+    background:none;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    font-weight:400;
+    font-size:1.2rem;
+    line-height:1.25em;
+    color: black;
+    margin:0;
+    padding:0;
+    display:inline-block;
+    text-decoration: underline;
+    text-decoration-style: none;
+    text-decoration-skip: ink;
+    text-decoration-color: hotpink;
+}
+
+.inline-button:hover{
+    background-color: lightgrey;
+}
+
+/*OVERLAY*/
+#modal{
+    z-index: 10;
+    width:385px;
+    height:auto;
+    position:absolute;
+    top:140px;
+    left:5px;
+    background-color:white;
+    border-radius:10px;
+    padding:.25rem 1rem 1rem 1rem;
+    border: 3px solid;
+    display:grid;
+    grid-template-columns: 100px 10px 1fr min-content;
+    grid-template-rows: min-content min-content;
+    overflow-y:auto;
+}
+
+#overlay{
+display:inline-block;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  position: relative;
+  top: 0;
+  left: 0;;
+}
+
+.imagehold{
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    display:inline-block;
+    position:relative;
+    top:0;
+    height:100%;
+    vertical-align:top;
+}
+
+.imagehold:after{
+}
+
+#select-image{
+    vertical-align:top;
+    position:relative;
+    display:inline-block;
+    width:100%;
+    height:auto;
+    margin:0;
+}
+.imagehold img{
+    vertical-align:top;
+    width:100%;
+    height:100%;
+    border-radius:5%;
+
+}
+
+#select-info:before, #select-info:after{
+
+}
+#select-info{
+    grid-column: 3 /span 1;
+    grid-row: 2 / span 1;
+    height:auto;
+    display:inline-block;
+    padding:0 10px;
+    width:100%;
+    max-width:240px;
+    p{
+        margin:0;
+        font-size:1.2rem;
+    }
+}
+
+.select-name{
+    font-weight:700;
+}
+
+.pm-highlight{
+    background-color: rgba(9, 170, 100, .5);
+}
+.em-highlight{
+    background-color: rgba(152, 82, 217, .5);
+}
+.tm-highlight{
+    background-color: rgba(250, 101, 2, .5);
+}
+
+.hide{
+    visibility:hidden;
+    display:none;
+}
+
+
+#close{
+    background:none;
+    border:none;
+    z-index:12;
+    grid-row:1 /span 1;
+    grid-column: 4/span 1;
+    text-align:right;
+    cursor:pointer;
+    font-size:1.2rem;
+    color:darkgrey;
+    outline:none;
+}
+
+#close:focus{
+    outline:none;
+}
+
+
+/****
+TABLET
+Normally a higher breakpoint but here it's set at one below max-width on WP-embeds so it'll start scaling as the parent doc collapses down
+***/
+@media only screen and (max-width : 599px) {
+    /*html{
+        font-size:12px;
+    }*/
+    2
+    main{
+        max-width:600px;
+        display:block;
+        float:none;
+
+    }
+    h1{
+        margin-bottom:0;
+    }
+    aside{
+        display:inline-block;
+        float:none;
+        height:auto;
+        max-width:600px;
+    }
+
+    .team-button{
+        margin-left:0;
+        margin-right:5px;
+        margin-bottom:5px;
+        padding:0;
+        float:left;
+        grid-template-columns:5px min-content 5px min-content 5px;
+        width:auto;
+    }
+
+    .team-name{
+    width:auto;
+    display:inline-block;
+    }
+
+    aside .other p{
+        bottom:7px;
+    }
+
+    #modal{
+        width:95%;
+        grid-template-columns: 90px 10px 1fr min-content;
+        max-width:400px;
+        margin:0 auto;
+        left:0;
+        right:0;
+    }
+
+}
+
+/***
+Phones
+***/
+@media only screen and (max-width : 500px) {
+    
+    #select-info{
+        width:100;
+        max-width:180px;
+        padding-left:5px;
+    }
+    
+    .person-circle {
+        margin:2px;
+        width:34px;
+        height:34px;
+        border:none;
+    }
+    .person-circle:after{
+        opacity:0.5;
+    }
+}
+
