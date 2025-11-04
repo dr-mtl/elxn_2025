@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://dr-mtl.github.io/elxn_2025/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <!--Developed by David Rudin for the Montreal Gazette-->
 </head>
 <body>
@@ -57,6 +57,7 @@ var borough = "Borough"
 var district = "District"
 var image = "Image"
 var slug = "Slug"
+var close = "Close"
 
 
 var data;
@@ -185,7 +186,7 @@ $( document ).ready(function() {
                     thisdot+= 'data-party="'+data[i][party]+'" data-voteshare="0"';
                 };
 
-                thisdot+= 'data-role="' + data[i][role]+'" data-borough="'+ data[i][borough]+'" data-district="' +data[i][district]+'" data-slug="'+data[i][slug]+'" style="background-image: url('+data[i][image]+'" data-image="'+ data[i][image]+'"></div>';
+                thisdot+= 'data-role="' + data[i][role]+'" data-borough="'+ data[i][borough]+'" data-district="' +data[i][district]+'" data-slug="'+data[i][slug]+'" style="background-image: url('+data[i][image]+'" data-image="'+ data[i][image]+'" data-close="'+data[i][close]+'"></div>';
 
 
                 thedots += thisdot;
@@ -245,6 +246,7 @@ $( document ).ready(function() {
         var image = $(this).attr('data-image');
         var borough = $(this).attr('data-borough');
         var district = $(this).attr('data-district');
+        var close = $(this).attr('data-close');
         var role = $(this).attr('data-role')[0].toLowerCase() + $(this).attr('data-role').slice(1) // sets first letter to lowercase so it works in a sentence
 
        
@@ -272,6 +274,12 @@ $( document ).ready(function() {
         }else{
             var sentence = "<p><span class='select-name'>" + name + "</span>  of " + markparty() + " has been elected as the " +role+ " in the "+borough+" borough.</p>"
         }
+
+        if(close=="TRUE"){
+            sentence += "<br><p><i>This is a close race that may be subject to a recount.</i></p"
+        }
+
+
 
         document.getElementById('select-info').innerHTML = sentence;
         document.getElementById('select-image').innerHTML = '<img src="' + image + '">';
